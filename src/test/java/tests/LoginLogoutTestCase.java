@@ -1,7 +1,8 @@
-package test;
+package tests;
 
 import base.BaseTest;
 import enums.MenuTab;
+import excel.ExcelReader;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -22,7 +23,8 @@ public class LoginLogoutTestCase extends BaseTest {
     public void loginVerifyLogout(){
         LandingPage landingPage = new LandingPage();
         landingPage.navigateToTab(MenuTab.SIGNUP_LOGIN);
-        LandingPage.inputCredential("dds", "dsad");
+        landingPage.inputCredential(ExcelReader.readCellValue("src/test/resources/testdata/Book1.xlsx", "Credentials", "Username", 1),
+                ExcelReader.readCellValue("src/test/resources/testdata/Book1.xlsx", "Credentials", "Password", 1));
     }
 
     @AfterTest
