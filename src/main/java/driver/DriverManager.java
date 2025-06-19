@@ -20,8 +20,6 @@ public class DriverManager {
     protected static final ThreadLocal<WebDriverWait> wait = new ThreadLocal<>();
 
     public void setupBrowserDriver() {
-        WebDriver webDriver;
-
         switch (ConfigReader.getBrowser().toLowerCase()) {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
@@ -29,7 +27,7 @@ public class DriverManager {
                 if (ConfigReader.isHeadless()) {
                     chromeOptions.addArguments("--headless=new", "--disable-gpu", "--window-size=1920,1080");
                 }
-                webDriver = new ChromeDriver(chromeOptions);
+                driver.set(new ChromeDriver(chromeOptions));
                 break;
 
             case "firefox":
@@ -38,7 +36,7 @@ public class DriverManager {
                 if (ConfigReader.isHeadless()) {
                     firefoxOptions.addArguments("--headless", "--width=1920", "--height=1080");
                 }
-                webDriver = new FirefoxDriver(firefoxOptions);
+                driver.set(new FirefoxDriver(firefoxOptions));
                 break;
 
             case "edge":
@@ -48,23 +46,22 @@ public class DriverManager {
                     edgeOptions.addArguments("--headless=new");
                 }
                 edgeOptions.addArguments("--window-size=1920,1080");
-                webDriver = new EdgeDriver(edgeOptions);
+                driver.set(new EdgeDriver(edgeOptions));
                 break;
 
             case "safari":
                 WebDriverManager.safaridriver().setup();
-                webDriver = new SafariDriver();
+               driver.set(new SafariDriver());
                 break;
 
             default:
                 throw new IllegalArgumentException("Unsupported browser: " + ConfigReader.getBrowser());
         }
 
-        driver.set(webDriver);
-        wait.set(new WebDriverWait(webDriver, Duration.ofSeconds(ConfigReader.getExplicitWait())));
+        wait.set(new WebDriverWait(driver.get(), Duration.ofSeconds(ConfigReader.getExplicitWait())));
 
-        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(ConfigReader.getImplicitWait()));
-        webDriver.manage().window().maximize();
-        webDriver.get(ConfigReader.getBaseUrl());
+        driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(ConfigReader.getImplicitWait()));
+        driver.get().manage().window().maximize();
+        driver.get().get(ConfigReader.getBaseUrl());
     }
 }
