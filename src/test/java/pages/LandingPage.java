@@ -1,6 +1,7 @@
 package pages;
 
 import enums.MenuTab;
+import org.openqa.selenium.By;
 import pages.object.LandingPageObject;
 import base.BaseTest;
 
@@ -40,5 +41,18 @@ public class LandingPage extends BaseTest {
          sendKeys(LandingPageObject.LOGIN_EMAIL_INPUT, username);
          sendKeys(LandingPageObject.LOGIN_PASSWORD_INPUT, password);
          click(LandingPageObject.LOGIN_BUTTON);
+    }
+
+    public void verifyUserLoggedIn(String name){
+        verifyElementVisible(LandingPageObject.LOGGED_IN_AS_TAB);
+        verifyElementVisible(driver.get().findElement(By.xpath("//b[normalize-space(text())='" + name + "']")));
+    }
+
+    public void VerifyFalseUsernamePasswordPromptError(String error){
+        verifyTextVisible(error);
+    }
+
+    public void clickLogoutButton(){
+        click(LandingPageObject.LOGOUT_TAB);
     }
 }

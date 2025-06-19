@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">kym</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Jun 19, 2025 03:54:58 am</span></a>
+<a href="#"><span class="badge badge-primary">Jun 19, 2025 11:45:02 am</span></a>
 </li>
 </ul>
 </div>
@@ -66,13 +66,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Jun 19, 2025 03:54:58 am</h3>
+<h3>Jun 19, 2025 11:45:02 am</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Jun 19, 2025 03:55:41 am</h3>
+<h3>Jun 19, 2025 11:45:47 am</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -84,7 +84,7 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Tests Failed</p>
-<h3>0</h3>
+<h3>1</h3>
 </div></div>
 </div>
 </div>
@@ -100,12 +100,12 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'>
+<div><small data-tooltip='50%'>
 <b>1</b> tests passed
 </small>
 </div>
 <div>
-<small data-tooltip='0%'><b>0</b> tests failed,
+<small data-tooltip='50%'><b>1</b> tests failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
@@ -123,9 +123,9 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>4</b> events passed</small></div>
+<div><small data-tooltip='90%'><b>10</b> events passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> events failed,
+<small data-tooltip='9%'><b>1</b> events failed,
 <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -142,7 +142,7 @@
 </div></div>
 <script>
 var timeline = {
-"LoginLogoutTestCase - loginVerifyLogout":35.679
+"LoginLogoutTestCase - loginVerifyLogout":28.757,"LoginLogoutTestCase - verifyFalseUsername":12.641
 };
 </script>
 <div class="row">
@@ -155,10 +155,10 @@ var timeline = {
 <tr>
 <td><b>BrowserName:&nbsp;</b>chrome<br><b>Version:&nbsp;</b>137.0.7151.105</td>
 <td>1</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
-<td>0</td>
-<td>100%</td>
+<td>50%</td>
 </tr>
 </tbody>
 </table></div>
@@ -184,7 +184,7 @@ var timeline = {
 var statusGroup = {
 parentCount: 5,
 passParent: 1,
-failParent: 0,
+failParent: 1,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
@@ -200,8 +200,8 @@ warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
-passEvents: 4,
-failEvents: 0,
+passEvents: 10,
+failEvents: 1,
 warningEvents: 0,
 skipEvents: 0,
 infoEvents: 0
@@ -217,6 +217,7 @@ infoEvents: 0
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
 <a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -237,7 +238,7 @@ infoEvents: 0
           <div class="test-detail">
             <p class="name">LoginLogoutTestCase - loginVerifyLogout</p>
             <p class="text-sm">
-              <span>3:55:05 am</span> / <span>00:00:35:679</span>
+              <span>11:45:05 am</span> / <span>00:00:28:757</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -246,9 +247,9 @@ infoEvents: 0
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">LoginLogoutTestCase - loginVerifyLogout</h5>
-<span class='badge badge-success'>06.19.2025 3:55:05 am</span>
-<span class='badge badge-danger'>06.19.2025 3:55:41 am</span>
-<span class='badge badge-default'>00:00:35:679</span>
+<span class='badge badge-success'>06.19.2025 11:45:05 am</span>
+<span class='badge badge-danger'>06.19.2025 11:45:34 am</span>
+<span class='badge badge-default'>00:00:28:757</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -262,44 +263,164 @@ infoEvents: 0
   <tbody>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:55:07 am</td>
+        <td>11:45:08 am</td>
         <td>
-          Element [[ChromeDriver: chrome on mac (b4e5ec89a17b0f25fcaf93367e0b1528)] -> xpath: //a[normalize-space(text())='Signup / Login']]is clicked
+          Element [[ChromeDriver: chrome on mac (242016b7159538cc5b331651fcc26fdd)] -> xpath: //a[normalize-space(text())='Signup / Login']] is clicked
     <div class="row mb-3"><div class="col-md-3">
-<img data-featherlight='/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_03-54-58/screenshot/1750276507659.png' src="/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_03-54-58/screenshot/1750276507659.png">
+<img data-featherlight='/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304708170.png' src="/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304708170.png">
     
     </div></div>
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:55:08 am</td>
+        <td>11:45:09 am</td>
         <td>
-          Send Key zuricpoc@gmail.com into element [[ChromeDriver: chrome on mac (b4e5ec89a17b0f25fcaf93367e0b1528)] -> xpath: //input[@data-qa='login-email']]
+          Sendkey "zuricpoc@gmail.com" into element [[ChromeDriver: chrome on mac (242016b7159538cc5b331651fcc26fdd)] -> xpath: //input[@data-qa='login-email']]
     <div class="row mb-3"><div class="col-md-3">
-<img data-featherlight='/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_03-54-58/screenshot/1750276508501.png' src="/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_03-54-58/screenshot/1750276508501.png">
+<img data-featherlight='/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304709066.png' src="/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304709066.png">
     
     </div></div>
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:55:08 am</td>
+        <td>11:45:09 am</td>
         <td>
-          Send Key test123 into element [[ChromeDriver: chrome on mac (b4e5ec89a17b0f25fcaf93367e0b1528)] -> xpath: //input[@data-qa='login-password']]
+          Sendkey "test123" into element [[ChromeDriver: chrome on mac (242016b7159538cc5b331651fcc26fdd)] -> xpath: //input[@data-qa='login-password']]
     <div class="row mb-3"><div class="col-md-3">
-<img data-featherlight='/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_03-54-58/screenshot/1750276508778.png' src="/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_03-54-58/screenshot/1750276508778.png">
+<img data-featherlight='/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304709335.png' src="/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304709335.png">
     
     </div></div>
         </td>
       </tr>
       <tr class="event-row">
         <td><span class="badge log pass-bg">Pass</span></td>
-        <td>3:55:41 am</td>
+        <td>11:45:21 am</td>
         <td>
-          Element Proxy element for: DefaultElementLocator 'By.xpath: //button[@data-qa='login-button']'is clicked
+          Element Proxy element for: DefaultElementLocator 'By.xpath: //button[@data-qa='login-button']' is clicked
     <div class="row mb-3"><div class="col-md-3">
-<img data-featherlight='/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_03-54-58/screenshot/1750276541197.png' src="/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_03-54-58/screenshot/1750276541197.png">
+<img data-featherlight='/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304721281.png' src="/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304721281.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:45:22 am</td>
+        <td>
+          [[ChromeDriver: chrome on mac (242016b7159538cc5b331651fcc26fdd)] -> xpath: //a[normalize-space(text())='Logged in as']] is visible
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304721678.png' src="/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304721678.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:45:22 am</td>
+        <td>
+          [[ChromeDriver: chrome on mac (242016b7159538cc5b331651fcc26fdd)] -> xpath: //b[normalize-space(text())='hakim']] is visible
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304722055.png' src="/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304722055.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:45:34 am</td>
+        <td>
+          Element Proxy element for: DefaultElementLocator 'By.xpath: //a[normalize-space(text())='Logout']' is clicked
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304734055.png' src="/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304734055.png">
+    
+    </div></div>
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="2"
+          author=""
+          tag=""
+          device="<b>BrowserName:&nbsp;</b>chrome<br><b>Version:&nbsp;</b>137.0.7151.105">
+          <div class="test-detail">
+            <p class="name">LoginLogoutTestCase - verifyFalseUsername</p>
+            <p class="text-sm">
+              <span>11:45:34 am</span> / <span>00:00:12:641</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">LoginLogoutTestCase - verifyFalseUsername</h5>
+<span class='badge badge-success'>06.19.2025 11:45:34 am</span>
+<span class='badge badge-danger'>06.19.2025 11:45:46 am</span>
+<span class='badge badge-default'>00:00:12:641</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-15"><span class="badge badge-pill badge-default"><b>BrowserName:&nbsp;</b>chrome<br><b>Version:&nbsp;</b>137.0.7151.105</span></div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:45:34 am</td>
+        <td>
+          Sendkey "zurichpoc@gmail.com" into element [[ChromeDriver: chrome on mac (242016b7159538cc5b331651fcc26fdd)] -> xpath: //input[@data-qa='login-email']]
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304734367.png' src="/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304734367.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:45:34 am</td>
+        <td>
+          Sendkey "test1234" into element [[ChromeDriver: chrome on mac (242016b7159538cc5b331651fcc26fdd)] -> xpath: //input[@data-qa='login-password']]
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304734608.png' src="/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304734608.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:45:36 am</td>
+        <td>
+          Element [[ChromeDriver: chrome on mac (242016b7159538cc5b331651fcc26fdd)] -> xpath: //button[@data-qa='login-button']] is clicked
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304736494.png' src="/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304736494.png">
+    
+    </div></div>
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>11:45:46 am</td>
+        <td>
+          no such element: Unable to locate element: {"method":"xpath","selector":"//*[normalize-space(text())='Your email or password is incorrect']"}
+  (Session info: chrome=137.0.7151.105)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.20.0', revision: '866c76ca80'
+System info: os.name: 'Mac OS X', os.arch: 'aarch64', os.version: '14.6.1', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [242016b7159538cc5b331651fcc26fdd, findElement {using=xpath, value=//*[normalize-space(text())='Your email or password is incorrect']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 137.0.7151.105, chrome: {chromedriverVersion: 137.0.7151.119 (e0ac9d12dff..., userDataDir: /var/folders/nt/d7wk43dj5md...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58053}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: mac, proxy: Proxy(), se:cdp: ws://localhost:58053/devtoo..., se:cdpVersion: 137.0.7151.105, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 242016b7159538cc5b331651fcc26fdd
+    <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304746714.png' src="/Users/00131018amirulhakim/git/zurichpoc/reports/19.06.25_11-45-02/screenshot/1750304746714.png">
     
     </div></div>
         </td>
@@ -330,14 +451,16 @@ infoEvents: 0
 <div class="test-detail">
 <span class="meta">
 <span class='badge log pass-bg'>1</span>
+<span class='badge log badge-danger'>1</span>
 </span>
 <p class="name"><b>BrowserName:&nbsp;</b>chrome<br><b>Version:&nbsp;</b>137.0.7151.105</p>
-<p class="duration text-sm">1 tests</p>
+<p class="duration text-sm">2 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
 <h4><b>BrowserName:&nbsp;</b>chrome<br><b>Version:&nbsp;</b>137.0.7151.105</h4>
 <span status="pass" class='badge log pass-bg'>1 passed</span>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -350,9 +473,16 @@ infoEvents: 0
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>03:55:05 am</td>
+<td>11:45:05 am</td>
 <td>
 <a href="#" class="linked" test-id='1' id='1'>LoginLogoutTestCase - loginVerifyLogout</a>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>11:45:34 am</td>
+<td>
+<a href="#" class="linked" test-id='2' id='2'>LoginLogoutTestCase - verifyFalseUsername</a>
 </td>
 </tr>
 </tbody>

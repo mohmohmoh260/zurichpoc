@@ -13,6 +13,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.ConfigReader;
 import utils.PageInitializer;
 
@@ -21,7 +22,9 @@ import java.net.URL;
 import java.time.Duration;
 
 public class DriverManager {
+
     protected static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+    protected static final ThreadLocal<WebDriverWait> wait = new ThreadLocal<>();
 
     public void setupBrowserDriver() {
         switch (ConfigReader.getBrowser().toLowerCase()) {
@@ -70,9 +73,15 @@ public class DriverManager {
         }catch (Exception ignored){
         }
         driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(ConfigReader.getImplicitWait()));
+        wait.set(new WebDriverWait(driver.get(), Duration.ofSeconds(ConfigReader.getExplicitWait())));
         driver.get().manage().window().maximize();
         driver.get().get(ConfigReader.getBaseUrl());
     }
+
+    public static WebDriver getDriver() {
+        return driver.get();
+    }
+
 
     public void createMobileDriver(){
         UiAutomator2Options uiAutomator2Options = new UiAutomator2Options();

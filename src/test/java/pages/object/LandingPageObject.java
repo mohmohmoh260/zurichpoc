@@ -26,6 +26,12 @@ public class LandingPageObject {
     @FindBy(xpath = "//a[normalize-space(text())='Contact us']")
     public static WebElement CONTACT_US_TAB;
 
+    @FindBy(xpath = "//a[normalize-space(text())='Logout']")
+    public static WebElement LOGOUT_TAB;
+
+    @FindBy(xpath = "//a[normalize-space(text())='Logged in as']")
+    public static WebElement LOGGED_IN_AS_TAB;
+
     @FindBy(xpath = "//input[@data-qa='login-email']")
     public static WebElement LOGIN_EMAIL_INPUT;
 
