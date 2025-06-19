@@ -18,7 +18,7 @@ import java.io.File;
 public class BaseTest extends DriverManager {
 
     protected void waitForVisibility(WebElement element) {
-        wait.get().until(ExpectedConditions.visibilityOf(element));
+      wait.get().until(ExpectedConditions.visibilityOf(element));
     }
 
     protected void click(WebElement element) {

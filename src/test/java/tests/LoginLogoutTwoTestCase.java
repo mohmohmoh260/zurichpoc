@@ -9,7 +9,7 @@ import report.ExtentReport;
 
 import java.lang.reflect.Method;
 
-public class LoginLogoutTestCase extends BaseTest {
+public class LoginLogoutTwoTestCase extends BaseTest {
 
     LandingPage landingPage;
 

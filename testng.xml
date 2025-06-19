@@ -1,9 +1,18 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="MyTestSuite" parallel="none" thread-count="1">
+<suite name="MyTestSuite" parallel="tests" thread-count="3">
+    <test name="Hooks">
+        <classes>
+            <class name="hooks.Hooks"/>
+        </classes>
+    </test>
     <test name="LoginLogoutTest">
         <classes>
             <class name="tests.LoginLogoutTestCase"/>
-            <class name="hooks.Hooks"/>
+        </classes>
+    </test>
+    <test name="LoginLogoutTest2">
+        <classes>
+            <class name="tests.LoginLogoutTwoTestCase"/>
         </classes>
     </test>
 </suite>

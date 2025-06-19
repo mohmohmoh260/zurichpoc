@@ -7,30 +7,36 @@ import base.BaseTest;
 
 public class LandingPage extends BaseTest {
 
+    private final LandingPageObject landingPageObject;
+
+    public LandingPage() {
+        landingPageObject = new LandingPageObject();
+    }
+
     public void navigateToTab(MenuTab tab){
         switch (tab) {
             case HOME:
-                click(LandingPageObject.HOME_TAB);
+                click(landingPageObject.HOME_TAB);
                 break;
             case PRODUCTS:
-                click(LandingPageObject.PRODUCTS_TAB);
+                click(landingPageObject.PRODUCTS_TAB);
                 break;
             case CART:
-                click(LandingPageObject.CART_TAB);
+                click(landingPageObject.CART_TAB);
                 break;
             case SIGNUP_LOGIN:
-                click(LandingPageObject.SIGNUP_LOGIN_TAB);
+                click(landingPageObject.SIGNUP_LOGIN_TAB);
                 break;
             case TEST_CASES:
                 break;
             case API_TESTING:
-                click(LandingPageObject.API_TESTING_TAB);
+                click(landingPageObject.API_TESTING_TAB);
                 break;
             case VIDEO_TUTORIAL:
-                click(LandingPageObject.VIDEO_TUTORIAL_TAB);
+                click(landingPageObject.VIDEO_TUTORIAL_TAB);
                 break;
             case CONTACT_US:
-                click(LandingPageObject.CONTACT_US_TAB);
+                click(landingPageObject.CONTACT_US_TAB);
                 break;
             default:
                 throw new IllegalArgumentException("Tab not handled: " + tab);
@@ -38,13 +44,13 @@ public class LandingPage extends BaseTest {
     }
 
     public void inputCredential(String username, String password){
-         sendKeys(LandingPageObject.LOGIN_EMAIL_INPUT, username);
-         sendKeys(LandingPageObject.LOGIN_PASSWORD_INPUT, password);
-         click(LandingPageObject.LOGIN_BUTTON);
+         sendKeys(landingPageObject.LOGIN_EMAIL_INPUT, username);
+         sendKeys(landingPageObject.LOGIN_PASSWORD_INPUT, password);
+         click(landingPageObject.LOGIN_BUTTON);
     }
 
     public void verifyUserLoggedIn(String name){
-        verifyElementVisible(LandingPageObject.LOGGED_IN_AS_TAB);
+        verifyElementVisible(landingPageObject.LOGGED_IN_AS_TAB);
         verifyElementVisible(driver.get().findElement(By.xpath("//b[normalize-space(text())='" + name + "']")));
     }
 
@@ -53,6 +59,6 @@ public class LandingPage extends BaseTest {
     }
 
     public void clickLogoutButton(){
-        click(LandingPageObject.LOGOUT_TAB);
+        click(landingPageObject.LOGOUT_TAB);
     }
 }

@@ -1,9 +1,5 @@
 package driver;
 
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.options.UiAutomator2Options;
-import io.appium.java_client.service.local.AppiumDriverLocalService;
-import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,10 +11,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.ConfigReader;
-import utils.PageInitializer;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.time.Duration;
 
 public class DriverManager {
@@ -27,94 +20,51 @@ public class DriverManager {
     protected static final ThreadLocal<WebDriverWait> wait = new ThreadLocal<>();
 
     public void setupBrowserDriver() {
+        WebDriver webDriver;
+
         switch (ConfigReader.getBrowser().toLowerCase()) {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
                 if (ConfigReader.isHeadless()) {
-                    chromeOptions.addArguments("--headless=new");
-                    chromeOptions.addArguments("--disable-gpu");
-                    chromeOptions.addArguments("--window-size=1920,1080");
+                    chromeOptions.addArguments("--headless=new", "--disable-gpu", "--window-size=1920,1080");
                 }
-                driver.set(new ChromeDriver(chromeOptions));
+                webDriver = new ChromeDriver(chromeOptions);
                 break;
 
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
-                if(ConfigReader.isHeadless()){
-                    firefoxOptions.addArguments("--headless");
-                    firefoxOptions.addArguments("--width=1920");
-                    firefoxOptions.addArguments("--height=1080");
+                if (ConfigReader.isHeadless()) {
+                    firefoxOptions.addArguments("--headless", "--width=1920", "--height=1080");
                 }
-                driver.set(new FirefoxDriver());
+                webDriver = new FirefoxDriver(firefoxOptions);
                 break;
 
             case "edge":
                 WebDriverManager.edgedriver().setup();
                 EdgeOptions edgeOptions = new EdgeOptions();
-                if(ConfigReader.isHeadless()){
-                    edgeOptions.addArguments("--headless=new"); // new headless mode supported in Edge Chromium
+                if (ConfigReader.isHeadless()) {
+                    edgeOptions.addArguments("--headless=new");
                 }
                 edgeOptions.addArguments("--window-size=1920,1080");
-                driver.set(new EdgeDriver());
+                webDriver = new EdgeDriver(edgeOptions);
                 break;
 
             case "safari":
-                WebDriverManager.edgedriver().setup();
-                driver.set(new SafariDriver());
+                WebDriverManager.safaridriver().setup();
+                webDriver = new SafariDriver();
                 break;
 
             default:
                 throw new IllegalArgumentException("Unsupported browser: " + ConfigReader.getBrowser());
         }
-        try{
-            PageInitializer.pageFactoryInitializer(driver.get(), "src/test/java/pages/object", "pages.object");
-        }catch (Exception ignored){
-        }
-        driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(ConfigReader.getImplicitWait()));
-        wait.set(new WebDriverWait(driver.get(), Duration.ofSeconds(ConfigReader.getExplicitWait())));
-        driver.get().manage().window().maximize();
-        driver.get().get(ConfigReader.getBaseUrl());
-    }
 
-    public static WebDriver getDriver() {
-        return driver.get();
-    }
+        driver.set(webDriver);
+        wait.set(new WebDriverWait(webDriver, Duration.ofSeconds(ConfigReader.getExplicitWait())));
 
-
-    public void createMobileDriver(){
-        UiAutomator2Options uiAutomator2Options = new UiAutomator2Options();
-        uiAutomator2Options
-                .setUdid(ConfigReader.getUDID())
-                .setAutomationName("UiAutomator2")
-                .setAppPackage(ConfigReader.getAppPackage())
-                .setAppActivity(ConfigReader.getAppActivity())
-                .setFullReset(ConfigReader.fullReset())
-                .setNoReset(ConfigReader.noReset())
-                .setNewCommandTimeout(Duration.ofSeconds(600))
-                .setAutoGrantPermissions(true);
-
-        int min = 5000;
-        int max = 65535;
-        String port = String.valueOf((int) (Math.random() * (max - min + 1)) + min);
-
-        startAppiumService(port);
-
-        try {
-            driver.set(new AndroidDriver(new URL("http://127.0.0.1:" + port), uiAutomator2Options));
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private static final ThreadLocal<AppiumDriverLocalService> appiumDriverLocalService = new ThreadLocal<>();
-
-    private void startAppiumService(String port){
-        AppiumServiceBuilder appiumServiceBuilder = new AppiumServiceBuilder();
-        appiumServiceBuilder.withIPAddress("127.0.0.1");
-        appiumServiceBuilder.usingPort(Integer.parseInt(port));
-        appiumDriverLocalService.set(AppiumDriverLocalService.buildService(appiumServiceBuilder));
-        appiumDriverLocalService.get().start();
+        webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(ConfigReader.getImplicitWait()));
+        webDriver.manage().window().maximize();
+        webDriver.get(ConfigReader.getBaseUrl());
     }
 }
